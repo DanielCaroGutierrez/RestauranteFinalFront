@@ -1,0 +1,80 @@
+// carrusel.component.scss
+
+.container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+
+    .carousel-item {
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-height: 400px; // Altura máxima de las imágenes en el carrusel
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .carousel-item:not(:first-child) {
+      transform: translateX(100%);
+    }
+
+    .carousel-item.active {
+      transform: translateX(0);
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &-prev-icon,
+    &-next-icon {
+      font-size: 24px;
+    }
+
+    &-prev {
+      left: 10px;
+    }
+
+    &-next {
+      right: 10px;
+    }
+  }
+
+  // Hacemos el carrusel responsive
+  @media (max-width: 767px) {
+    .carousel-inner {
+      img {
+        max-height: 300px; // Reducimos la altura de las imágenes para dispositivos móviles
+      }
+    }
+  }
+}

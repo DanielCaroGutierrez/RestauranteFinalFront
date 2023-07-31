@@ -13,3 +13,32 @@ body {
     font-size: 14px;
   }
 }
+
+.card-food-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  gap: 20px; /* Espacio entre las tarjetas */
+
+  .card {
+    /* Estilos para cada tarjeta */
+    flex: 0 0 calc(33.33% - 40px); /* Hace que haya 3 tarjetas por fila en pantallas grandes */
+    max-width: calc(33.33% - 40px);
+  }
+
+  @media screen and (max-width: 768px) {
+    /* Estilos para pantallas de 768px o menos */
+    .card {
+      flex: 0 0 calc(50% - 20px); /* Hace que haya 2 tarjetas por fila en pantallas medianas */
+      max-width: calc(50% - 20px);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    /* Estilos para pantallas de 480px o menos */
+    .card {
+      flex: 0 0 100%; /* Hace que haya 1 tarjeta por fila en pantallas pequeñas */
+      max-width: 100%;
+    }
+  }
+}
